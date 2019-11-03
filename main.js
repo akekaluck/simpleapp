@@ -1,4 +1,11 @@
 const { app, BrowserWindow} = require('electron');
+
+require('update-electron-app')({
+  // repo: 'github-user/repo',
+  updateInterval: '1 hour',
+  logger: require('electron-log')
+});
+
 app.on('ready', () => {
     let win = new BrowserWindow({
         width: 800,
