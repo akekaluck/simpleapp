@@ -1,0 +1,20 @@
+{
+  "name": "simpleapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "./node_modules/.bin/electron main.js",
+    "build": "./node_modules/.bin/electron-packager . --overwrite --platform=darwin --icon=demo.icns --prune=true --out=./build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^7.0.0",
+    "electron-builder": "^22.1.0",
+    "electron-packager": "^14.1.0"
+  },
+  "dependencies": {
+    "update-electron-app": "^1.5.0"
+  }
+}
