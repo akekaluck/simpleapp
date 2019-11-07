@@ -5,7 +5,12 @@
   "main": "main.js",
   "scripts": {
     "start": "./node_modules/.bin/electron main.js",
-    "build": "./node_modules/.bin/electron-packager . --overwrite --platform=darwin --icon=demo.icns --prune=true --out=./build"
+    "build": "./node_modules/.bin/electron-packager . --overwrite --platform=darwin --icon=demo.icns --prune=true --out=./build --extendInfo=Info.plist",
+    "sign": "./node_modules/.bin/electron-osx-sign ./build/simpleapp-darwin-x64/simpleapp.app/ --type=development --identity=19EFEC70BBC5444002CF75ADFBAC471C34945F37 --gatekeeper-assess=false",
+    "dmg": "./node_modules/.bin/electron-installer-dmg --overwrite --out=build/dmg ./build/simpleapp-darwin-x64/simpleapp.app/ simpleapp",
+    "zip": "./node_modules/.bin/electron-installer-zip --overwrite --out=build/zip ./build/simpleapp-darwin-x64/simpleapp.app/ simpleapp",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "author": "",
   "license": "ISC",
@@ -13,9 +18,20 @@
     "type": "git",
     "url": "https://github.com/akekaluck/simpleapp.git"
   },
+  "build": {
+    "appId": "com.ake.test",
+    "mac": {
+      "type": "development",
+      "gatekeeperAssess": "false",
+      "category": "your.app.category.type",
+      "identity": "19EFEC70BBC5444002CF75ADFBAC471C34945F37"
+    }
+  },
   "devDependencies": {
     "electron": "^7.0.0",
     "electron-builder": "^22.1.0",
+    "electron-installer-dmg": "^3.0.0",
+    "electron-installer-zip": "^0.1.2",
     "electron-packager": "^14.1.0"
   },
   "dependencies": {
