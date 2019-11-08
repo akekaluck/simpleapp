@@ -4,8 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "./node_modules/.bin/electron main.js",
-    "build": "./node_modules/.bin/electron-packager . --overwrite --platform=darwin --icon=demo.icns --prune=true --out=./build"
+    "start": "./node_modules/.bin/electron main.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,12 +14,7 @@
   },
   "devDependencies": {
     "electron": "^7.0.0",
-    "electron-builder": "^22.1.0",
-    "electron-packager": "^14.1.0"
+    "electron-builder": "^22.1.0"
   },
-  "dependencies": {
-    "electron-log": "^3.0.8",
-    "electron-updater": "^4.2.0",
-    "update-electron-app": "^1.5.0"
-  }
+  "dependencies": {}
 }
