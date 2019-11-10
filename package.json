@@ -23,6 +23,12 @@
     "mac": {
       "gatekeeperAssess": "false",
       "identity": null
+    },
+    "dmg": {
+      "window": {
+        "width": 200,
+        "height": 200
+      }
     }
   }
 }

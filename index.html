@@ -11,5 +11,43 @@
     We are using node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
+    <div class="jumbotron">
+      <p class="alert alert-info" id="drag-file" style="">
+        <img style="width: 100px;" src="https://avatars3.githubusercontent.com/u/13409222?s=200&v=4">
+      </p>
+    </div>
+
+    <script>
+      let { ipcRenderer } = require('electron');
+      var holder= document.getElementById("drag-file");
+      console.log('The file(s) you dragged: ', holder)
+      holder.ondragover = () => {
+          return false;
+      };
+
+      holder.ondragleave = () => {
+          return false;
+      };
+
+      holder.ondragend = () => {
+          return false;
+      };
+
+      holder.ondrop = (e) => {
+          e.preventDefault();
+
+          for (let f of e.dataTransfer.files) {
+              console.log('File(s) you dragged here: ', f.path)
+              ipcRenderer.send('ondragstart', f.path)
+          }
+          
+          return false;
+      };
+
+      // holder.ondragstart = (e) => {
+      //   console.log('ondragstart', e)
+      //   ipcRenderer.send('ondragstart', '/path/to/item')
+      // }
+    </script>
   </body>
 </html>
