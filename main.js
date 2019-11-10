@@ -40,7 +40,7 @@ app.on('ready', () => {
       })
       // and load the index.html of the app.
       win.loadFile('index.html')
-      win.openDevTools()
+      // win.openDevTools()
       // win.loadURL('https://wwww.pantip.com')
       // and load the index.html of the app.
       // win.setProgressBar(0.5)
